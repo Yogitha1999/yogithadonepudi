@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogitha Donepudi - Web Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--light-color);
+            margin-bottom: 1rem;
+            background-color: #ddd;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            padding: 1rem;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        /* About */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+        }
+        
+        .project-details {
+            padding: 1.5rem;
+        }
+        
+        .project-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+        
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .live-link {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .code-link {
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        /* Experience */
+        .experience-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-details p {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .experience-date {
+            color: var(--dark-color);
+            opacity: 0.7;
+        }
+        
+        .experience-description ul {
+            margin-left: 1.5rem;
+        }
+        
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Education */
+        .education-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .education-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+        
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-card p {
+            margin-bottom: 0.3rem;
+        }
+        
+        .school-name {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* Contact */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+        }
+        
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem 1rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .experience-date {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <!-- Replace with your image -->
+                <img src="/api/placeholder/150/150" alt="Yogitha Donepudi" class="profile-img">
+            </div>
+            <h1>Yogitha Donepudi</h1>
+            <h2>Software Engineer & Web Developer</h2>
+            <p>Building scalable web applications with modern technologies</p>
+            <div class="social-links">
+                <a href="mailto:donepudiyogitha@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/yogi-d/">LinkedIn</a>
+                <a href="https://github.com/yogithadonepudi">GitHub</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a results-driven Software Engineer with experience in designing and developing scalable, high-performance applications. My expertise spans both front-end and back-end technologies, with a strong focus on creating responsive web applications and optimizing system performance.</p>
+                <p>With a background in Java, Spring Boot, and front-end technologies like JavaScript and Angular, I excel at building distributed systems and implementing secure APIs. I am passionate about clean code, user experience, and staying current with emerging web technologies.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring MVC</span>
+                        <span class="skill-tag">Hibernate</span>
+                        <span class="skill-tag">J2EE</span>
+                        <span class="skill-tag">C/C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development & Cloud</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">XML</span>
+                        <span class="skill-tag">JSON</span>
+                        <span class="skill-tag">AJAX</span>
+                        <span class="skill-tag">AngularJS</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">JUnit</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">JMS</span>
+                        <span class="skill-tag">Jupyter</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Analytics</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">HQL</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/300/180" alt="COVID Detection Project">
+                    </div>
+                    <div class="project-details">
+                        <h3>COVID-19 Detection System</h3>
+                        <p>Developed a machine learning system that analyzes real-time datasets of COVID symptoms using unsupervised learning techniques.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Sklearn</span>
+                            <span class="project-tag">NumPy</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="live-link">View Project</a>
+                            <a href="#" class="code-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/300/180" alt="Healthcare Fraud Detection">
+                    </div>
+                    <div class="project-details">
+                        <h3>Healthcare Fraud Detection Dashboard</h3>
+                        <p>Created interactive visualizations to identify patterns and trends in fraudulent Medicare claims data, demonstrating ability to work with large distributed datasets.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Tableau</span>
+                            <span class="project-tag">Data Visualization</span>
+                            <span class="project-tag">Analytics</span>
+                            <span class="project-tag">Healthcare</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="live-link">View Dashboard</a>
+                            <a href="#" class="code-link">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-details">
+                        <h3>Software Development Engineer</h3>
+                        <p>ABSYZ Inc</p>
+                    </div>
+                    <div class="experience-date">May 2021 - July 2022</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Designed and built scalable, fault-tolerant microservices using Spring Boot & Apache Camel, ensuring high availability in a large distributed computing environment.</li>
+                        <li>Developed distributed storage and query systems with RESTful APIs for secure and efficient data exchange, reducing response times by optimizing system performance.</li>
+                        <li>Implemented event-driven architecture with Apache Kafka & JMS, enabling real-time transaction processing and high-throughput data streaming.</li>
+                        <li>Created responsive Single Page Applications (SPAs) using HTML5, CSS3, JavaScript, and AngularJS, enhancing front-end UIs.</li>
+                        <li>Automated CI/CD pipelines with Docker, Jenkins, and GitHub, reducing deployment time and accelerating release cycles in an agile environment.</li>
+                        <li>Implemented robust security measures, including OAuth2 and JWT authentication, to enhance API security and user authentication across microservices.</li>
+                        <li>Optimized SQL & NoSQL database queries, reducing query execution time by 30%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <h3>Master's in Information Technology</h3>
+                    <p class="school-name">University of North Texas</p>
+                    <p>Denton, Texas</p>
+                    <p>Relevant coursework: Advanced Web Development, Database Systems, Cloud Computing, Machine Learning</p>
+                </div>
+                <div class="education-card">
+                    <h3>Software Engineering</h3>
+                    <p class="school-name">Vellore Institute of Technology</p>
+                    <p>Chennai, India</p>
+                    <p>Relevant coursework: Data Structures, Algorithms, Object-Oriented Programming, Software Engineering Principles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <a href="mailto:donepudiyogitha@gmail.com">donepudiyogitha@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>📱</i>
+                        <span>940-843-3124</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yogitha Donepudi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
